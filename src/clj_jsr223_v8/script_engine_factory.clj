@@ -1,7 +1,7 @@
 (ns clj-jsr223-v8.script-engine-factory
   (:import [java.io Reader Writer]
            [javax.script ScriptException ScriptEngine]
-           clj-jsr223-v8.V8ScriptEngine))
+           clj_jsr223_v8.V8ScriptEngine))
 
 (defn -getEngineName
   [this]

@@ -2,7 +2,7 @@
   (:require v8.core)
   (:import [java.io Reader Writer]
            [javax.script ScriptException ScriptEngineFactory ScriptContext Bindings SimpleBindings]
-           clj-jsr223-v8.V8ScriptEngineFactory))
+           clj_jsr223_v8.V8ScriptEngineFactory))
 
 (defn ^Bindings -createBindings
   [this]

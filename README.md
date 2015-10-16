@@ -29,7 +29,7 @@ To load the V8 engine directly (not recommended):
 
 Import the script engine or the script engine factory classes as needed:
 
-    (import '[clj-jsr223-v8 V8ScriptEngineFactory V8ScriptEngine])
+    (import '[clj_jsr223_v8 V8ScriptEngineFactory V8ScriptEngine]) ;; Note the underscores!
 
 Once imported, instantiate `V8ScriptEngineFactory` to get started.
 
