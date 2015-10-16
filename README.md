@@ -17,11 +17,11 @@ The `javax.script` API allows run-time discovery of registered engine services. 
 
 Get a `V8ScriptEngineFactory` instance from *clj-jsr223-v8* using the JSR-223 API:
 
-  (def my-manager (javax.script.ScriptingManager.))
+    (def my-manager (javax.script.ScriptingManager.))
 
-  (def my-engine (.getEngineByName my-manager "v8")) ;; a V8ScriptEngine instance
+    (def my-engine (.getEngineByName my-manager "v8")) ;; a V8ScriptEngine instance
 
-  (.eval my-engine "123 + 456") ;; => "579"
+    (.eval my-engine "123 + 456") ;; => "579"
 
 ### Direct API
 
@@ -29,15 +29,15 @@ To load the V8 engine directly (not recommended):
 
 Import the script engine or the script engine factory classes as needed:
 
-  (import '[clj-jsr223-v8 V8ScriptEngineFactory V8ScriptEngine])
+    (import '[clj-jsr223-v8 V8ScriptEngineFactory V8ScriptEngine])
 
 Once imported, instantiate `V8ScriptEngineFactory` to get started.
 
-  (def my-factory (V8ScriptEngineFactory.))
+    (def my-factory (V8ScriptEngineFactory.))
 
-  (def my-engine (.getEngine my-factory)) ;; a V8ScriptEngine instance
+    (def my-engine (.getEngine my-factory)) ;; a V8ScriptEngine instance
 
-  (.eval my-engine "123 + 456") ;; => "579"
+    (.eval my-engine "123 + 456") ;; => "579"
 
 
 ## License
