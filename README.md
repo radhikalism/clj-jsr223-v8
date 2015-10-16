@@ -1,6 +1,6 @@
 # clj-jsr223-v8
 
-A Clojure wrapper around clj-v8, exposing a (probably, mostly) compliant JSR-223 `javax.script` API.
+This is a Clojure wrapper around *clj-v8*, exposing a (probably, mostly) compliant JSR-223 `javax.script` API.
 
 The `javax.script` API defines a generic interface for scripting engines, including ECMAScript engines for the JVM.
 
@@ -13,7 +13,7 @@ Add `[clj-jsr223-v8 "0.1.0"]` to `:dependencies` in `project.clj`.
 
 ### Service API (recommended)
 
-The `javax.script` API allows run-time discovery of registered engine services. *clj-jsr223-v8* registers its service unde the names `"v8"`, `"V8"`, and `"clj-v8"`.
+The `javax.script` API allows run-time discovery of registered engine services. *clj-jsr223-v8* registers its service under the names `"v8"`, `"V8"`, and `"clj-v8"`.
 
 Get a `V8ScriptEngineFactory` instance from *clj-jsr223-v8* using the JSR-223 API:
 
