@@ -28,7 +28,7 @@ Get a `V8ScriptEngineFactory` instance from *clj-jsr223-v8* using the JSR-223 AP
 
     (.eval v8-engine "var foo = 1 + 1;")
 
-    (.eval v8-engine "foo") ;; => 2
+    (.eval v8-engine "foo") ;; => "2"
 
 
 #### Cleaning up
