@@ -2,7 +2,7 @@
   (:require [clojure.test :refer :all]
             [clojure.set]
             [clj-jsr223-v8 script-engine-factory script-engine])
-  (:import [clj-jsr223-v8 V8ScriptEngineFactory V8ScriptEngine]))
+  (:import [clj_jsr223_v8 V8ScriptEngineFactory V8ScriptEngine]))
 
 
 (defn non-empty-string? [s]
