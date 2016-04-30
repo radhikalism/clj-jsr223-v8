@@ -5,10 +5,4 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :aot [clj-jsr223-v8.core]
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [clj-v8 "0.1.5"]]
-  :release-tasks [["vcs" "assert-committed"]
-                  ["change" "version" "leiningen.release/bump-version" "release"]
-                  ["vcs" "commit"]
-                  ["deploy" "clojars"]
-                  ["change" "version" "leiningen.release/bump-version"]
-                  ["vcs" "commit"]])
+                 [clj-v8 "0.1.5"]])
