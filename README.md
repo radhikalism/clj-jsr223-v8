@@ -9,7 +9,7 @@ The `javax.script` API defines a generic interface for scripting engines, includ
 
 ## Usage
 
-Add `[clj-jsr223-v8 "0.1.6"]` to `:dependencies` in `project.clj`.
+Add `[clj-jsr223-v8 "0.1.7"]` to `:dependencies` in `project.clj`.
 
 ### Service API (recommended)
 
