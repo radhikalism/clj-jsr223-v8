@@ -22,13 +22,17 @@ Get a `V8ScriptEngineFactory` instance from *clj-jsr223-v8* using the JSR-223 AP
     (def v8-engine (.getEngineByName engines "clj-v8")) ;; A V8ScriptEngine instance
                                                         ;; (You might use "nashorn" on JDK8 for a difference engine.)
 
-    (.eval v8-engine "123 + 456") ;; => "579"
+    (.eval v8-engine "123 + 456") ;; => 579
 
     ;; Context persists in each engine instance...
 
-    (.eval v8-engine "var foo = 1 + 1;")
+    (.eval v8-engine "var foo = 1 + 1;") ;; => nil
 
-    (.eval v8-engine "foo") ;; => "2"
+    (.eval v8-engine "foo") ;; => 2
+
+Like in Nashorn, values returned by `(.eval ...)` are Clojure/Java objects (though not guaranteed to be exactly the same at this time!). These are constructed from a JSON-stringified marshalled representation of the underlying V8 value. This means e.g. `Object` instances are represented as maps:
+
+    (.eval v8-engine "var o = new Object(); o.foo = 1; o.bar = 2; o;") ;; => {"foo" 1, "bar" 2}
 
 
 #### Cleaning up

@@ -41,20 +41,36 @@
   (testing "Script engine"
     (testing "can eval correctly"
       (is (= (.eval (V8ScriptEngine.) "123")
-             "123")))
+             123)))
     
-    (testing "can eval readFile"
+    (testing "can eval readFile (not evaluating)"
       (is (= (.eval (V8ScriptEngine.) "readFile('test/data/sample.js');")
-             "123\n")))
+             "123;\n456;\n")))
     
     (testing  "can work in parallel with other script engines"
       (is (= (pmap #(.eval (V8ScriptEngine.) %) (repeat 20 "(function(){ return 5; })();"))
-             (repeat 20 "5"))))
+             (repeat 20 5))))
     
     (testing "can execute multiple scripts in the same context"
       (let [engine (V8ScriptEngine.)]
         (.eval engine "x = 17; y = {a: 6};")
         (is (= (.eval engine "x;")
-               "17"))
+               17))
         (is (= (.eval engine "y.a;")
-               "6"))))))
+               6))))
+
+    (testing "can deal with double quotes"
+      (is (= (.eval (V8ScriptEngine.) "var foo = \"\\\"foo\\\"\"; foo;")
+             "\"foo\"")))
+
+    (testing "can deal with single quotes"
+      (is (= (.eval (V8ScriptEngine.) "var foo = '\\'foo\\''; foo;")
+             "'foo'")))
+
+    (testing "can deal with linebreaks, trailing comments"
+      (is (= (.eval (V8ScriptEngine.) "var foo = 1;\nvar bar = 2;// A comment!\nvar baz = 3;\r\nfoo\u2028+bar+\u2029baz;")
+             6)))
+
+    (testing "can deal with undefined as a value"
+      (is (= (.eval (V8ScriptEngine.) "undefined")
+             nil)))))
