@@ -1,10 +1,12 @@
 # clj-jsr223-v8
 
-This is a Clojure wrapper around [clj-v8](https://github.com/circleci/clj-v8/), exposing a (probably, mostly) compliant [JSR-223](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html) `javax.script` API.
+This is a Clojure wrapper around [clj-v8](https://github.com/circleci/clj-v8/), exposing a compliant* [JSR-223](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html) `javax.script` API to use the [V8](https://developers.google.com/v8/) ECMAScript engine from the JVM.
 
 The `javax.script` API defines a generic interface for scripting engines, including ECMAScript engines for the JVM.
 
 *clj-v8* provides a Java-based interface to (a specific and probably dated version of) V8, but this is not compliant with javax.scripting. Projects depending on *clj-v8* may want the option of loading pluggable script engines using javax.scripting, so *clj-jsr223-v8* aims to bridge that gap.
+
+(\* Eventually.)
 
 
 ## Usage
