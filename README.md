@@ -36,7 +36,7 @@ Get a `V8ScriptEngine` instance from *clj-jsr223-v8* using the JSR-223 API:
 Like in Nashorn, values returned by `(.eval ...)` are Clojure/Java objects (though not guaranteed to be exactly the same at this time!). These are constructed from a JSON-stringified marshalled representation of the underlying V8 value. This means e.g. `Object` instances are represented as maps:
 
 ```clojure
-    (.eval v8-engine "var o = new Object(); o.foo = 1; o.bar = 2; o;") ;; => {"foo" 1, "bar" 2}
+(.eval v8-engine "var o = new Object(); o.foo = 1; o.bar = 2; o;") ;; => {"foo" 1, "bar" 2}
 ```
 
 `undefined` and `null` ECMAScript values each appear as `nil`.
@@ -55,17 +55,17 @@ To load the V8 engine directly (not recommended):
 Import the script engine or the script engine factory classes as needed:
 
 ```clojure
-    (import '[clj_jsr223_v8 V8ScriptEngineFactory V8ScriptEngine]) ;; Note the underscores!
+(import '[clj_jsr223_v8 V8ScriptEngineFactory V8ScriptEngine]) ;; Note the underscores!
 ```
 
 Once imported, instantiate `V8ScriptEngineFactory` to get started.
 
 ```clojure
-    (def my-factory (V8ScriptEngineFactory.))
+(def my-factory (V8ScriptEngineFactory.))
 
-    (def my-engine (.getEngine my-factory)) ;; a V8ScriptEngine instance
+(def my-engine (.getEngine my-factory)) ;; a V8ScriptEngine instance
 
-    (.eval my-engine "123 + 456") ;; => "579"
+(.eval my-engine "123 + 456") ;; => "579"
 ```
 
 ## License
